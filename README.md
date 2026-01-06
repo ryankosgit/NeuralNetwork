@@ -21,8 +21,15 @@ This project contains:
 - A final ```NeuralNetwork``` class that contains multiple ```Block``` objects
 
 ## Module
-```Module``` is a class that serves as the base for both ```LinearLayer``` and ```ReLUActivation```. It contains a vector that contains the weights, a forward function that performs element multiplication to the input vector with weights, and a default constructor that sets the weights automatically to {1.0}.
+```Module``` is a class that serves as the base for both ```LinearLayer``` and ```ReLUActivation```. It contains a vector that contains the weights, a forward function with an input parameter that performs element multiplication to the input vector with weights, and a default constructor that sets the weights automatically to {1.0}.
 
-## LinearLayer
+## Linear Layer
+```LinearLayer``` is one of the derived classes from ```Module```. Its default constructor sets the input and output sizes of the layer, and initalizes bias. It also has a forward function that performs weights multiplication and adds the bias. The function that sets the flat weights set them to whatever the input is. The display and size functions print the expected dimensions, bias, and flat weight vector. 
 
+## ReLU Activation
+```ReLUActivation``` is the second derived class from ```Module```.
+
+## 
+
+## 
 
