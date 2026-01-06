@@ -31,10 +31,8 @@ vector<double> LinearLayer::forward(const vector<double>& input) const{
         result[i] = bias[i];
 
     for(int j = 0; j < input_size; j++)
-        result[j] += weights[i * input_size + j] * input[j];
-
+        result[i] += weights[i * input_size + j] * input[j];
     }
-
     return result;
 }
 
@@ -69,6 +67,7 @@ void LinearLayer::setFlatWeights(const vector<double>& newWeights){ //set module
 
 
 ReLUActivation::ReLUActivation(double p_s, double n_s){
+    Module::weights.resize(2);
     Module::weights[0] = p_s;
     Module::weights[1] = n_s;
 }
@@ -94,6 +93,8 @@ void ReLUActivation::display() const{
 }
 
 void ReLUActivation::setWeights(const vector<double>& newWeights) {
+    if(newWeights.size() < 2) return;
+    weights.resize(2);
     weights[0] = newWeights[0];
     weights[1] = newWeights[1];
 }
@@ -133,16 +134,19 @@ void Block::setActivationWeights(const vector<double>& setActivationWeights){
 
 
 NeuralNetwork::NeuralNetwork(int num_blocks, int in_size, int hidden_size, int out_size){
-    if (num_blocks < 2){
+    if (num_blocks <= 0) return;
+
+    if (num_blocks == 1){
         blocks.push_back(Block(in_size, out_size));
+        return;
     }
-    else{
-        blocks.push_back(Block(in_size, hidden_size));
-        for(int i = 0 ; i < num_blocks - 1; i++){
-            blocks.push_back(Block(hidden_size, hidden_size));
-        }
-        blocks.push_back(Block(hidden_size, out_size));
-    }
+
+    blocks.push_back(Block(in_size, hidden_size));
+
+    for (int i = 0; i < num_blocks - 2; i++) 
+        blocks.push_back(Block(hidden_size, hidden_size));
+
+    blocks.push_back(Block(hidden_size, out_size));
 }
 
 vector<double> NeuralNetwork::forward(const vector<double>& input) const{ // forward for all blocks
