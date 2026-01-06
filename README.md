@@ -12,13 +12,17 @@ NeuralNetwork
 ├── nn.h        # Header
 ```
 
-# Classes
+# Class Summaries
 
 This project contains:
 - A base ```Module``` class
 - Two derived classes: ```LinearLayer``` and ```ReLUActivation```
-- A composite ```Block``` class that groups a ```LinearLayer``` instance with a ```ReLUActivation``` instance
+- A composite ```Block``` class that groups a ```LinearLayer``` with a ```ReLUActivation```
 - A final ```NeuralNetwork``` class that contains multiple ```Block``` objects
 
+## Module
+```Module``` is a class that serves as the base for both ```LinearLayer``` and ```ReLUActivation```. It contains a vector that contains the weights, a forward function that performs element multiplication to the input vector with weights, and a default constructor that sets the weights automatically to {1.0}.
+
+## LinearLayer
 
 
