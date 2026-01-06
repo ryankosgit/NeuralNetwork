@@ -35,3 +35,6 @@ This project contains:
 ## Neural Network
 ```NeuralNetwork``` is the grandmaster class that represents the complete network from multiple ```Block``` objects. It allows users to specify the number of blocks, as well as specific numbers of the input, hidden, and output layers.
 
+
+
+
