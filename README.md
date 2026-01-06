@@ -36,5 +36,17 @@ This project contains:
 ```NeuralNetwork``` is the grandmaster class that represents the complete network from multiple ```Block``` objects. It allows users to specify the number of blocks, as well as specific numbers of the input, hidden, and output layers.
 
 
+# RUNNING THE PROGRAM
+Run ```make``` in the terminal followed by executing ```./nn.x``` and you should be met by this screen to insert the parameters for your neural network's number of blocks, input layer size, hidden layer size, and finally output layer size:
+
+<img width="768" height="158" alt="Screenshot 2026-01-06 at 1 29 47 AM" src="https://github.com/user-attachments/assets/dc8274b8-5fca-4caf-b128-c3a339ced14d" />
+
+Following that it contains the network's output.
+
+<img width="694" height="169" alt="Screenshot 2026-01-06 at 1 30 23 AM" src="https://github.com/user-attachments/assets/ba48f3b1-5759-4f7d-b688-d6ac57af3030" />
+
+And finally it contains the weight dimensions, bias, flatweight vector, and ReLU for the blocks set by the user.
+
+<img width="1163" height="617" alt="Screenshot 2026-01-06 at 1 30 49 AM" src="https://github.com/user-attachments/assets/ac2cda2c-d26b-40a7-ab11-42643b00c391" />
 
 
